@@ -13,3 +13,38 @@ export type HandleSubmit<Values> = (
 export type AppContextProps = {
   isLoggedIn?: boolean;
 };
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'secondaryDark'
+  | 'secondaryLight'
+  | 'tertiary'
+  | 'tertiaryDark'
+  | 'tertiaryLight';
+
+export type LinkProps = {
+  label: string;
+  url?: string;
+  icon?: string;
+  iconPosition?: 'left' | 'right' | 'top';
+  iconFontSize?: 'inherit' | 'small' | 'large';
+  highlight?: boolean;
+  className?: string;
+  nofollow?: boolean;
+  noFollow?: boolean;
+  newWindow?: boolean;
+  onClick?: () => void;
+  // Added to support links that appear as buttons
+  button?: boolean;
+  variant?: ButtonVariant;
+  thin?: boolean;
+  tabIndex?: number;
+  highlightTextMatch?: string;
+  id?: string;
+};
+
+export type BodyComponent = 'Articles' | 'Institutions';
+export type Site = {
+  bodyComponent: BodyComponent;
+  setBodyComponent?: (bodyComponent: BodyComponent) => void;
+};

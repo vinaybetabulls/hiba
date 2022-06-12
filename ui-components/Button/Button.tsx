@@ -2,17 +2,13 @@ import { default as MuiButton } from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import clsx from 'clsx';
 import React, { CSSProperties } from 'react';
+import { ButtonVariant } from '../../common/props';
 import { ucFirst } from '../../utils/common';
 import Icon from '../Icon/Icon';
 import useStyles from './Button.styles';
 
 export type Props = {
-  variant:
-    | 'primary'
-    | 'secondary'
-    | 'secondaryDark'
-    | 'secondaryLight'
-    | 'tertiary';
+  variant: ButtonVariant;
   thin?: boolean;
   thinOnMobile?: boolean;
   icon?: string;
