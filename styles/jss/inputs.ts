@@ -1,7 +1,7 @@
-import { Theme } from '@mui/material/styles';
+import { StyleRules } from '@material-ui/core';
 import { spacing } from './variable';
-
-export const inputStyles = () => ({
+import { Theme } from '@material-ui/core/styles/createTheme';
+export const inputStyles = (theme: Theme): StyleRules => ({
   textFieldWrapper: {
     width: '30ch',
   },

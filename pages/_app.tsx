@@ -1,37 +1,28 @@
-import * as React from 'react';
+import React from 'react';
 import type { AppProps } from 'next/app';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import theme from '../styles/theme/theme';
 
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-
-import createEmotionCache from '../utils/createEmotionCache';
-import customThemeOptions from '../styles/theme/theme';
-import '../styles/globals.css';
-interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
-}
-
-const clientSideEmotionCache = createEmotionCache();
-
-const theme = createTheme(customThemeOptions);
-
-const MyApp: React.FunctionComponent<MyAppProps> = props => {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+function App({ Component, pageProps }: AppProps) {
+  /*
+   * Remove the server-side injected CSS when UI rendering kicks in.
+   * This code comes from the MUI reference implementation of nextjs:
+   * https://github.com/mui-org/material-ui/tree/master/examples/nextjs-with-typescript
+   */
+  React.useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles?.parentElement?.removeChild(jssStyles);
+    }
+  }, []);
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </CacheProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
-};
+}
 
-export default MyApp;
-
-/**MUI theming reference url https://dev.to/hajhosein/nextjs-mui-v5-typescript-tutorial-and-starter-3pab */
+export default App;

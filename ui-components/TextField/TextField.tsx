@@ -1,4 +1,4 @@
-import { Input, InputProps } from '@mui/material';
+import { Input, InputProps } from '@material-ui/core';
 import { FormikContext, useField } from 'formik';
 import { useContext } from 'react';
 import clsx from 'clsx';

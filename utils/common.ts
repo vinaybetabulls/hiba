@@ -22,3 +22,7 @@ export const errorMessages = (value?: any) => ({
   unsupportedCharacters:
     'Sorry, you have entered text that appears to contain some invalid characters, remove those characters and try again',
 });
+
+export const ucFirst = (text: string) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};
