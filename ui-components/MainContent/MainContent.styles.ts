@@ -38,10 +38,15 @@ const useStyles = makeStyles(theme => ({
   },
   list: { padding: '0 !important' },
   sidenavLinks: {
-    '& .MuiListItemIcon-root': { marginRight: '16px' },
+    '& .MuiListItemIcon-root': {
+      marginRight: '16px',
+      minWidth: 0,
+    },
     '&:hover': {
       backgroundColor: '#e0f3ff !important',
-      '& a': { color: '#343a40' },
+      '& a, & .MuiListItemIcon-root': {
+        color: '#008be9',
+      },
     },
     '& a': {
       textDecoration: 'none',
