@@ -1,4 +1,4 @@
-import { FieldMetaProps } from 'formik';
+import { FieldMetaProps, FormikHelpers } from 'formik';
 import { FieldValidation } from '../common/props';
 
 export const showValidationMeta = (meta: FieldMetaProps<any>) => {
@@ -9,6 +9,9 @@ export const showValidationMeta = (meta: FieldMetaProps<any>) => {
   }
   return {};
 };
+
+/* Regex to test against the extended ASCII character set */
+export const inputValidationRegex = /^[\x20-\xFF\r\n]*$/;
 
 export const errorMessages = (value?: any) => ({
   minChars: `Please enter more than ${value} characters`,
@@ -25,4 +28,15 @@ export const errorMessages = (value?: any) => ({
 
 export const ucFirst = (text: string) => {
   return text.charAt(0).toUpperCase() + text.slice(1);
+};
+
+export type HandleSubmit<Values> = (
+  values: Values,
+  formikHelpers?: FormikHelpers<Values>,
+) => Promise<any>;
+
+export type ArticleValues = {
+  title: string;
+  description: string;
+  // images: string[];
 };

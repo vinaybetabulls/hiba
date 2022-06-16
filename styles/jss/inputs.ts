@@ -9,8 +9,8 @@ export const inputStyles = (theme: Theme): StyleRules => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: spacing.xs,
-    border: '1px solid #d4d6d8',
+    padding: '12px',
+    border: '1px solid #D4D6D8',
     borderRadius: '4px',
     '& input, & textarea': {
       padding: 0,
@@ -37,13 +37,14 @@ export const inputStyles = (theme: Theme): StyleRules => ({
   label: {
     display: 'block',
     marginBottom: spacing.xs,
+    fontWeight: 500,
   },
   labelCompleted: {
     display: 'block',
   },
   value: {
     width: '100%',
-    backgroundColor: '#f6f6f6',
+    backgroundColor: '#F6F6F6',
     border: 0,
     '&:focus': {
       outline: 'none',

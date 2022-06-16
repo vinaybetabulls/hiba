@@ -1,10 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 // import { SiteTheme } from '../../styles/jss/theme';
-// import { colors, spacing } from '../../styles/jss/variables'
-
+import { spacing } from '../../styles/jss/variable';
 const useStyles = makeStyles(theme => ({
   modal: {
-    padding: theme.spacing(3),
+    // padding: theme.spacing(3),
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       height: '100%',
@@ -14,7 +13,7 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 0,
     },
     [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(4),
+      // padding: theme.spacing(4),
       minWidth: '500px',
     },
     '& .MuiDialogContent-root': {
@@ -30,16 +29,21 @@ const useStyles = makeStyles(theme => ({
     },
   },
   header: {
-    padding: 0,
+    padding: `0 ${spacing.small}`,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: theme.spacing(2),
     flex: '0 0 auto',
+    background: '#1976D2',
+    color: '#fff',
+    '& .MuiIconButton-root': {
+      color: '#fff',
+    },
     '& h3': {
       // color: theme.isFlyingFlowers ? colors.black[700] : undefined,
       // ...theme.typography.medium_regular,
-      margin: `0 ${theme.spacing(2)} 0 0`,
+      margin: `0`,
       [theme.breakpoints.up('md')]: {
         // ...theme.typography.large_regular,
       },
@@ -59,10 +63,10 @@ const useStyles = makeStyles(theme => ({
     },
   },
   contentContainer: {
+    padding: spacing.small,
     '&::-webkit-scrollbar': {
       display: 'none',
     },
-    padding: '0!important',
     '& p': {
       // ...theme.typography.small_regular,
       marginBottom: theme.spacing(3),
@@ -83,5 +87,4 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-
 export default useStyles;

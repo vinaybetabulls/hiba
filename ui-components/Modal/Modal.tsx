@@ -1,11 +1,12 @@
 import { default as ImportedDialog } from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
+import IconButton from '@material-ui/core/IconButton';
 import clsx from 'clsx';
 import React, { ReactNode, useContext } from 'react';
 import Link from '../Link/Link';
 // import RoundButton from '../RoundButton/RoundButton'
 import useStyles from './Modal.styles';
-
+import CloseIcon from '@material-ui/icons/Close';
 export type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -23,7 +24,6 @@ export type Props = {
   className?: string;
   isFromImageGallery?: boolean;
 };
-
 const Modal = ({
   open,
   children,
@@ -42,12 +42,10 @@ const Modal = ({
   isFromImageGallery,
 }: Props) => {
   const classes = useStyles();
-
   const handleClose = () => {
     setOpen(false);
     !!onClose && onClose();
   };
-
   return (
     <ImportedDialog
       className={clsx(className ?? '', noPadding && classes.noPadding)}
@@ -71,7 +69,9 @@ const Modal = ({
         )}
       >
         {title && <h3>{title}</h3>}
-        <Link url={''} label={'X'} onClick={handleClose} />
+        <IconButton aria-label="close" onClick={onClose}>
+          <CloseIcon />
+        </IconButton>
       </header>
       <DialogContent className={classes.contentContainer}>
         {children}
@@ -79,5 +79,4 @@ const Modal = ({
     </ImportedDialog>
   );
 };
-
 export default Modal;

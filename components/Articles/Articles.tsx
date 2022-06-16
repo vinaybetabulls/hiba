@@ -4,12 +4,17 @@ import { Box } from '@material-ui/core';
 import useStyles from './Articles.styles';
 import Button from '../../ui-components/Button/Button';
 import Modal from '../../ui-components/Modal/Modal';
-import TextField from '../../ui-components/TextField/TextField';
+import ArticlesForm from '../../ui-components/Articles/Articles';
+import { ArticleValues } from '../../utils/common';
 
 const Articles = () => {
   const classes = useStyles();
   const [articles, setArticles] = React.useState([]);
   const [open, setOpen] = React.useState(false);
+  const handleSaveArticles = async (values: ArticleValues) => {
+    // setOpen(false);
+    console.log({ values });
+  };
   return (
     <>
       <Box className={classes.header}>
@@ -41,61 +46,11 @@ const Articles = () => {
           posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
       )}
-      {open && (
-        <Modal
-          open={open}
-          onClose={() => setOpen(false)}
-          keepMounted={true}
-          // fullScreen={true}
-          setOpen={() => setOpen(true)}
-          maxWidth="md"
-          // fullWidth={true}
-          title="Article"
-        >
-          <div className={classes.container}>
-            <TextField
-              name="title"
-              label="Article"
-              placeholder="Enter title"
-              fullWidth
-              required
-              // hideRequiredOptional
-              disabled={false}
-              inputProps={{ maxLength: 80 }}
-            />
-          </div>
-          <div className={classes.container}>
-            <TextField
-              name="description"
-              label="Description"
-              placeholder="Enter description"
-              fullWidth
-              required
-              multiline
-              rows={4}
-              // hideRequiredOptional
-              disabled={false}
-              inputProps={{ maxLength: 200 }}
-            />
-          </div>
-          <div className={classes.container}>
-            <label className={classes.label}>Upload</label>
-            <div className={classes.imgContainer}>
-              <div className={classes.imgUpload}>
-                <input type="file" id="myFile" name="filename" />
-              </div>
-              <div className={classes.imgPlaceHolder}></div>
-            </div>
-          </div>
-          <div className={classes.dialogActions}>
-            <Button
-              title="submit"
-              variant="primary"
-              onClick={() => setOpen(false)}
-            />
-          </div>
-        </Modal>
-      )}
+      <ArticlesForm
+        open={open}
+        setOpen={setOpen}
+        handleSaveArticles={handleSaveArticles}
+      />
     </>
   );
 };

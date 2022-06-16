@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-display: swap;
   font-family: 'Amithen';
   font-style: normal;
@@ -103,7 +103,7 @@
   src: url('../fonts/gotham/Gotham-BoldItalic.woff2') format('woff2'),
     url('../fonts/gotham/Gotham-BoldItalic.woff') format('woff'),
     url('../fonts/gotham/Gotham-BoldItalic.ttf') format('truetype');
-}
+} */
 
 @font-face {
   font-family: 'Material Icons';

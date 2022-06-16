@@ -11,12 +11,16 @@ export type Props = InputProps & {
   trimOnBlur?: boolean;
   state?: 'error' | 'success';
   errorMessage?: string;
+  fullWidth?: boolean;
   setValue?: (value: any) => void;
   onChange?: (e: React.ChangeEvent<any>) => void;
+  onClick?: () => void;
+  onBlur?: (e: any) => void;
   hideError?: boolean;
   hideRequiredOptional?: boolean;
   rows?: number;
   multiline?: boolean;
+  children?: React.ReactNode;
 };
 
 const TextFieldWrappper = (props: Props) => {
@@ -59,12 +63,14 @@ const TextField = (props: Props) => {
     fullWidth,
     label,
     required,
-    setValue,
     state,
     errorMessage,
-    hideError,
-    trimOnBlur,
+    setValue,
     hideRequiredOptional,
+    hideError,
+    children,
+    trimOnBlur,
+    endAdornment,
     ...textInputProps
   } = props;
 
@@ -76,6 +82,7 @@ const TextField = (props: Props) => {
     onChange,
     onBlur: trimOnBlur
       ? (event: any) => {
+          console.log({ enetedvalue: event.target.value });
           onBlur && onBlur(event);
           setValue && setValue(event.target?.value?.trim());
         }
@@ -89,12 +96,16 @@ const TextField = (props: Props) => {
     <div
       className={clsx(classes.textFieldWrapper, fullWidth && classes.fullWidth)}
     >
-      <div className={classes.textContainer}>
+      <div className={clsx(classes.textContainer)}>
         <label className={classes.label} htmlFor={commonInputProps.id}>
           {`${label} `}
           {hideRequiredOptional ? '' : required ? '(Required)' : '(Optional)'}
         </label>
-        <Input {...commonInputProps} className={classes.textField} />
+        <Input
+          {...commonInputProps}
+          endAdornment={endAdornment}
+          className={classes.textField}
+        />
         {errorMessage && !hideError && (
           <span className={classes.errorMessage}>{errorMessage}</span>
         )}
