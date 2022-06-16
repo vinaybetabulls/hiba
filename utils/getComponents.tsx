@@ -2,8 +2,10 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 
 const components = {
-  Articles: dynamic(() => import('../components/Articles')),
-  Institutions: dynamic(() => import('../components/Institutions')),
+  Articles: dynamic(() => import('../components/Articles'), { ssr: false }),
+  Institutions: dynamic(() => import('../components/Institutions'), {
+    ssr: false,
+  }),
 };
 
 export function getDynamicComponent(c: keyof typeof components) {
@@ -17,6 +19,18 @@ export function getDynamicComponent(c: keyof typeof components) {
 export function getBodyComponent(component: any) {
   const DynamicComponent = getDynamicComponent(component);
   if (DynamicComponent) {
-    return <DynamicComponent />;
+    return (
+      <DynamicComponent
+        title={''}
+        description={''}
+        image={{
+          url: '',
+          altText: '',
+        }}
+        onSubmit={function (): void {
+          throw new Error('Function not implemented.');
+        }}
+      />
+    );
   }
 }

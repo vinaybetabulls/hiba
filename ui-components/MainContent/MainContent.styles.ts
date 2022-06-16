@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
       width: drawerWidth,
       flexShrink: 0,
     },
+    '& .MuiDrawer-paper': {
+      top: theme.spacing(8),
+    },
   },
   appBar: {
     [theme.breakpoints.up('sm')]: {
@@ -32,6 +35,27 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+  },
+  list: { padding: '0 !important' },
+  sidenavLinks: {
+    '& .MuiListItemIcon-root': { marginRight: '16px' },
+    '&:hover': {
+      backgroundColor: '#e0f3ff !important',
+      '& a': { color: '#343a40' },
+    },
+    '& a': {
+      textDecoration: 'none',
+      color: '#343a40',
+      display: 'flex',
+      lineHeight: '2.4rem',
+      height: '2.4rem',
+      padding: '0 1.5rem 0 0',
+      position: 'relative',
+      borderRadius: '0.25rem',
+      whiteSpace: 'nowrap',
+      transition: 'all .2s',
+      margin: '0.1rem 0',
+    },
   },
 }));
 

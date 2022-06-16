@@ -10,7 +10,23 @@ export const inputStyles = (theme: Theme): StyleRules => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: spacing.xs,
-    border: '1px solid #f6f6f6',
+    border: '1px solid #d4d6d8',
+    borderRadius: '4px',
+    '& input, & textarea': {
+      padding: 0,
+      fontSize: '13px',
+    },
+    '&:hover': {
+      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
+      backgroundColor: '#fff',
+    },
+    '&:active': {
+      backgroundColor: '#fff',
+    },
+    '&:focus-within': {
+      boxShadow: '0px 0px 8px #008BE9, 0px 4px 8px rgba(0, 0, 0, 0.32)',
+      backgroundColor: '#fff',
+    },
   },
   textFieldUnboxed: {
     display: 'flex',
@@ -20,6 +36,7 @@ export const inputStyles = (theme: Theme): StyleRules => ({
   },
   label: {
     display: 'block',
+    marginBottom: spacing.xs,
   },
   labelCompleted: {
     display: 'block',

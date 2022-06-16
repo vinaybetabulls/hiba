@@ -48,3 +48,9 @@ export type Site = {
   bodyComponent: BodyComponent;
   setBodyComponent?: (bodyComponent: BodyComponent) => void;
 };
+
+export type SideNavLinks = {
+  icon: string;
+  url: string;
+  label: string;
+};

@@ -1,10 +1,17 @@
+import { Box } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
+import Button from '../../ui-components/Button/Button';
+import useStyles from './Insitituions.styles';
 
 const Institutions = () => {
+  const classes = useStyles();
   return (
     <>
-      <div>Institutions</div>
+      <Box className={classes.header}>
+        <Typography variant="h5">Institutions</Typography>
+        <Button variant="secondary" title="Create Instituion" />
+      </Box>
       <Typography paragraph>
         Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
         ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum

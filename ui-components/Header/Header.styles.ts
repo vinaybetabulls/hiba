@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { spacing } from '../../styles/jss/variable';
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -13,6 +14,15 @@ const useStyles = makeStyles(theme => ({
         height: '40px',
         width: 'auto',
         marginRight: '12px',
+      },
+    },
+  },
+  links: {
+    '& a': {
+      color: '#fff',
+      textDecoration: 'none',
+      '&:not(:last-child)': {
+        marginRight: spacing.small,
       },
     },
   },

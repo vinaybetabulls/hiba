@@ -27,12 +27,11 @@ const Header = (props: Props) => {
         <Typography variant="h6" className={classes.title}>
           {title}
         </Typography>
-        {/* <Button variant="primary" title="About" /> */}
-        {/* <Button variant="primary" title="Articles" />
-        <Button variant="primary" title="Login/Register" /> */}
-        <Link url="/about" label="About" />
-        <Link url="/articles" label="Articles" />
-        <Link url="/login" label="Login" />
+        <div className={classes.links}>
+          <Link url="/about" label="About" variant="primary" />
+          <Link url="/articles" label="Articles" variant="primary" />
+          <Link url="/login" label="Login" variant="primary" />
+        </div>
       </Toolbar>
     </AppBar>
   );

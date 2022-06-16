@@ -2,13 +2,19 @@ import { default as MuiButton } from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import clsx from 'clsx';
 import React, { CSSProperties } from 'react';
-import { ButtonVariant } from '../../common/props';
 import { ucFirst } from '../../utils/common';
 import Icon from '../Icon/Icon';
 import useStyles from './Button.styles';
 
 export type Props = {
-  variant: ButtonVariant;
+  variant:
+    | 'primary'
+    | 'secondary'
+    | 'secondaryDark'
+    | 'secondaryLight'
+    | 'tertiary'
+    | 'tertiaryDark'
+    | 'tertiaryLight';
   thin?: boolean;
   thinOnMobile?: boolean;
   icon?: string;
@@ -44,7 +50,7 @@ const Button = (props: Props) => {
     id,
   } = props;
   const classes: any = useStyles();
-  const formattedVariat = ucFirst(
+  const formattedVariant = ucFirst(
     variant === 'secondary'
       ? 'secondaryDark'
       : variant === 'tertiary'
@@ -53,7 +59,7 @@ const Button = (props: Props) => {
   );
   const calcClassName = {
     [classes.button]: true,
-    [classes[`button${formattedVariat}`]]: true,
+    [classes[`button${formattedVariant}`]]: true,
     [classes.buttonThin]: thin,
     [classes.buttonThinMobile]: thinOnMobile,
   };
@@ -66,7 +72,10 @@ const Button = (props: Props) => {
         fullWidth={fullWidth}
         type={isSubmit ? 'submit' : 'button'}
         className={clsx(className)}
-        classes={{ root: clsx(calcClassName) }}
+        classes={{ startIcon: classes.icon, root: clsx(calcClassName) }}
+        TouchRippleProps={{
+          classes: { root: classes[`rippleClass${formattedVariant}`] },
+        }}
         startIcon={
           icon && <Icon icon={icon} className={classes.iconContainer} />
         }

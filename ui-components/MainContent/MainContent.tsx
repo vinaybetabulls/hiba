@@ -19,32 +19,24 @@ const MainContent = ({ componentName }: Props) => {
   // const { bodyComponent } = useContext(SiteContext);
   const [bodyComponent, setBodyComponent] = useState(componentName);
   const drawer = (
-    <div>
-      <List>
-        {sideNavLinks.map((item, index) => (
-          // <ListItem button key={text}>
-          //   <ListItemIcon>
-          //     {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-          //   </ListItemIcon>
-          //   <ListItemText primary={text} />
-          // </ListItem>
-          <ListItem button key={index}>
-            <Link
-              url={item.url}
-              label={item.label}
-              onClick={() => setBodyComponent(item.label)}
-            />
-          </ListItem>
-        ))}
-      </List>
-    </div>
+    <List className={classes.list}>
+      {sideNavLinks.map((item, index) => (
+        <ListItem key={index} className={classes.sidenavLinks}>
+          <Link
+            url={item.url}
+            label={item.label}
+            onClick={() => setBodyComponent(item.label)}
+            variant="primary"
+            icon={item.icon}
+          />
+        </ListItem>
+      ))}
+    </List>
   );
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-  const x = getBodyComponent(bodyComponent);
 
   return (
     <div>
@@ -62,11 +54,11 @@ const MainContent = ({ componentName }: Props) => {
             {drawer}
           </Drawer>
         </nav>
-        <main className={classes.content}>
+        <div className={classes.content}>
           {getBodyComponent(bodyComponent)}
           {/*
            */}
-        </main>
+        </div>
       </div>
     </div>
   );

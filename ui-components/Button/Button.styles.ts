@@ -5,42 +5,37 @@ import { spacing } from '../../styles/jss/variable';
 const useStyles = makeStyles((theme: Theme) => ({
   buttonPrimary: {
     '&.MuiButtonBase-root': {
-      // color: colors.grey.grey7,
-      // backgroundColor: colors.primary.gold4,
+      color: '#fff',
+      backgroundColor: '#2196f3',
       '&:hover': {
-        // backgroundColor:  colors.primary.gold3,
+        backgroundColor: '#1976d2',
         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
       },
       '&:active': {
-        boxShadow: 'none',
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
       },
       '&:disabled': {
-        // color:  colors.grey.grey7,
-        // backgroundColor: colors.primary.gold1,
-        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.24)',
+        color: 'rgba(0, 0, 0, 0.26)',
+        boxShadow: 'none',
+        backgroundColor: 'rgba(0, 0, 0, 0.12)',
       },
     },
   },
   buttonSecondaryDark: {
     '&.MuiButtonBase-root': {
-      // color: colors.supplementary.white,
-      // backgroundColor colors.grey.grey7,
+      color: '#fff',
+      backgroundColor: '#f50057',
       '&:hover': {
-        // color: colors.primary.gold1,
-        // backgroundColor:  colors.supplementary.black,
+        backgroundColor: '#c51162',
         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
       },
-      '&:focus': {
-        // backgroundColor:  undefined,
-      },
       '&:active': {
-        boxShadow: 'none',
-        // backgroundColor: colors.grey.grey5,
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
       },
       '&:disabled': {
-        // color:  colors.grey.grey7,
-        // backgroundColor: colors.grey.grey3,
-        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.24)',
+        color: 'rgba(0, 0, 0, 0.26)',
+        boxShadow: 'none',
+        backgroundColor: 'rgba(0, 0, 0, 0.12)',
       },
     },
   },
@@ -80,15 +75,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     // Expected height 60px
     '&.MuiButtonBase-root.MuiButton-root': {
-      paddingTop: 20,
-      paddingBottom: 20,
-      paddingLeft: 25,
-      paddingRight: 25,
-      '&$buttonTertiaryDark, &$buttonTertiaryLight': {
-        paddingTop: 18,
-        paddingBottom: 18,
-        paddingLeft: 23,
-        paddingRight: 23,
+      padding: '6px 16px',
+      '&$buttonTertiaryDark': {
+        padding: '6px 16px',
         borderWidth: '2px',
         borderStyle: 'solid',
       },
@@ -115,15 +104,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   buttonThin: {
     // Expected height 44px
     '&.MuiButtonBase-root.MuiButton-root': {
-      paddingTop: 14,
-      paddingBottom: 14,
-      paddingLeft: 31,
-      paddingRight: 31,
-      '&$buttonTertiaryDark, &$buttonTertiaryLight': {
-        paddingTop: 12,
-        paddingBottom: 12,
-        paddingLeft: 29,
-        paddingRight: 29,
+      padding: '6px 16px',
+      '&$buttonTertiaryDark': {
+        padding: '6px 16px',
       },
       '& .MuiButton-startIcon': {
         // Use margin to adjust icon to same height as text
@@ -140,15 +123,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down('sm')]: {
       // Expected height 44px
       '&.MuiButtonBase-root.MuiButton-root': {
-        paddingTop: 14,
-        paddingBottom: 14,
-        paddingLeft: 31,
-        paddingRight: 31,
-        '&$buttonTertiaryDark, &$buttonTertiaryLight': {
-          paddingTop: 12,
-          paddingBottom: 12,
-          paddingLeft: 29,
-          paddingRight: 29,
+        padding: '6px 16px',
+        '&$buttonTertiaryDark': {
+          padding: '6px 16px',
         },
         '& .MuiButton-startIcon': {
           // Use margin to adjust icon to same height as text

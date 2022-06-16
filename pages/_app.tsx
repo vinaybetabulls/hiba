@@ -1,7 +1,7 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import '../public/css/fonts.css';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import theme from '../styles/theme/theme';
 
 function App({ Component, pageProps }: AppProps) {

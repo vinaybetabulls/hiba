@@ -94,7 +94,7 @@ const TextField = (props: Props) => {
           {`${label} `}
           {hideRequiredOptional ? '' : required ? '(Required)' : '(Optional)'}
         </label>
-        <Input {...commonInputProps} />
+        <Input {...commonInputProps} className={classes.textField} />
         {errorMessage && !hideError && (
           <span className={classes.errorMessage}>{errorMessage}</span>
         )}
