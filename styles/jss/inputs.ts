@@ -1,5 +1,5 @@
 import { StyleRules } from '@material-ui/core';
-import { spacing } from './variable';
+import { colors, spacing } from './variable';
 import { Theme } from '@material-ui/core/styles/createTheme';
 export const inputStyles = (theme: Theme): StyleRules => ({
   textFieldWrapper: {
@@ -60,7 +60,7 @@ export const inputStyles = (theme: Theme): StyleRules => ({
     width: '100%',
   },
   errorMessage: {
-    color: '#de4f60',
+    color: colors.stastus.error,
   },
   icon: {},
   textContent: {

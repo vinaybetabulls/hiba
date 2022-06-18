@@ -51,7 +51,11 @@ export const colors = {
   color: {
     primary: '#fff',
     secondary: '#18a405',
-    error: '',
+  },
+  stastus: {
+    success: '#3c8224',
+    error: '#9b211b',
+    warning: '#debe1a',
   },
   disabled: {
     backgroundcolor: '#d5e0d5',
