@@ -37,7 +37,7 @@ export const inputStyles = (theme: Theme): StyleRules => ({
   label: {
     display: 'block',
     marginBottom: spacing.xs,
-    fontWeight: 500,
+    fontWeight: 600,
   },
   labelCompleted: {
     display: 'block',
@@ -59,7 +59,9 @@ export const inputStyles = (theme: Theme): StyleRules => ({
   textContainer: {
     width: '100%',
   },
-  errorMessage: {},
+  errorMessage: {
+    color: '#de4f60',
+  },
   icon: {},
   textContent: {
     paddingRight: spacing.xs,

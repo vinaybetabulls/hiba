@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 // import { SiteTheme } from '../../styles/jss/theme';
-import { spacing } from '../../styles/jss/variable';
+import { colors, spacing } from '../../styles/jss/variable';
 const useStyles = makeStyles(theme => ({
   modal: {
     // padding: theme.spacing(3),
@@ -29,20 +29,17 @@ const useStyles = makeStyles(theme => ({
     },
   },
   header: {
-    padding: `0 ${spacing.small}`,
+    padding: `${spacing.medium}`,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: theme.spacing(2),
     flex: '0 0 auto',
-    background: '#1976D2',
-    color: '#fff',
+    background: colors.primary.white,
+    color: colors.primary.black,
     '& .MuiIconButton-root': {
-      color: '#fff',
+      color: colors.primary.black,
     },
-    '& h3': {
-      // color: theme.isFlyingFlowers ? colors.black[700] : undefined,
-      // ...theme.typography.medium_regular,
+    '& h1': {
       margin: `0`,
       [theme.breakpoints.up('md')]: {
         // ...theme.typography.large_regular,
@@ -63,7 +60,8 @@ const useStyles = makeStyles(theme => ({
     },
   },
   contentContainer: {
-    padding: spacing.small,
+    padding: spacing.medium,
+    paddingTop: 0,
     '&::-webkit-scrollbar': {
       display: 'none',
     },

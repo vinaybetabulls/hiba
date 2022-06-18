@@ -87,38 +87,40 @@ const ArticlesForm = ({
   return (
     <Formik {...formikConfig}>
       {({ isSubmitting }) => (
-        <Modal
-          open={open}
-          onClose={() => setOpen(false)}
-          keepMounted={true}
-          // fullScreen={true}
-          setOpen={() => setOpen(true)}
-          maxWidth="md"
-          // fullWidth={true}
-          title="Article"
-        >
-          <Form>
-            <div className={classes.container}>
-              <TextField
-                name="title"
-                label="Article"
-                placeholder="Enter title"
-                fullWidth
-                required
-              />
-            </div>
-            <div className={classes.container}>
-              <TextField
-                name="description"
-                label="Description"
-                placeholder="Enter description"
-                fullWidth
-                required
-                multiline
-                rows={4}
-              />
-            </div>
-            {/* <div className={classes.container}>
+        <>
+          {open && (
+            <Modal
+              open={open}
+              onClose={() => setOpen(false)}
+              keepMounted={true}
+              // fullScreen={true}
+              setOpen={() => setOpen(true)}
+              maxWidth="md"
+              // fullWidth={true}
+              title="Article"
+            >
+              <Form>
+                <div className={classes.container}>
+                  <TextField
+                    name="title"
+                    label="Article"
+                    placeholder="Enter title"
+                    fullWidth
+                    required
+                  />
+                </div>
+                <div className={classes.container}>
+                  <TextField
+                    name="description"
+                    label="Description"
+                    placeholder="Enter description"
+                    fullWidth
+                    required
+                    multiline
+                    rows={4}
+                  />
+                </div>
+                {/* <div className={classes.container}>
               <label className={classes.label}>Upload</label>
               <div className={classes.imgContainer}>
                 <div className={classes.imgUpload}>
@@ -127,16 +129,24 @@ const ArticlesForm = ({
                 <div className={classes.imgPlaceHolder}></div>
               </div>
             </div> */}
-            <div className={classes.dialogActions}>
-              <Button
-                title="Save"
-                isSubmit
-                variant="primary"
-                disabled={isSubmitting}
-              />
-            </div>
-          </Form>
-        </Modal>
+                <div className={classes.dialogActions}>
+                  <Button
+                    title="Cancel"
+                    variant="secondary"
+                    className={classes.cancelButton}
+                    onClick={() => setOpen(false)}
+                  />
+                  <Button
+                    title="Save"
+                    isSubmit
+                    variant="primary"
+                    disabled={isSubmitting}
+                  />
+                </div>
+              </Form>
+            </Modal>
+          )}
+        </>
       )}
     </Formik>
   );

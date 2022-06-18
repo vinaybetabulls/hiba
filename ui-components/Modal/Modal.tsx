@@ -68,7 +68,7 @@ const Modal = ({
           isFromImageGallery ? classes.imageGalleryHeader : '',
         )}
       >
-        {title && <h3>{title}</h3>}
+        {title && <h1>{title}</h1>}
         <IconButton aria-label="close" onClick={onClose}>
           <CloseIcon />
         </IconButton>

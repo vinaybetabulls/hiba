@@ -54,3 +54,16 @@ export type SideNavLinks = {
   url: string;
   label: string;
 };
+
+export type InstitutionValues = {
+  name: string;
+  addressline1: string;
+  addressline2?: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  landmark: string;
+  yearOfEstablishment: string;
+  natureOfInstitution: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
+  comments: string;
+};

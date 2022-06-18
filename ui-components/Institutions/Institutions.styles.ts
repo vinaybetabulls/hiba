@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { spacing } from '../../styles/jss/variable';
 
 const useStyles = makeStyles(theme => ({
   dialogActions: {
@@ -7,29 +8,19 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     // marginTop: theme.spacing(2),
   },
-  imgUpload: {
-    marginRight: theme.spacing(1),
-  },
-  imgPlaceHolder: {},
-  imgContainer: {
+  addressContainer: {
     display: 'flex',
-    flex: 1,
-    '& $imgUpload, & $imgPlaceHolder': {
-      height: '150px',
-      border: '1px solid #d3d3d3',
-      flex: 1,
-    },
+    flexFlow: 'row wrap',
   },
   container: {
     marginBottom: theme.spacing(2),
+    flex: '50%',
+    paddingRight: '8px',
   },
   label: {
     display: 'block',
     marginBottom: theme.spacing(1),
     fontWeight: 600,
-  },
-  cancelButton: {
-    marginRight: '12px',
   },
 }));
 

@@ -1,41 +1,38 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { spacing } from '../../styles/jss/variable';
+import { colors, spacing } from '../../styles/jss/variable';
 // import { colors, spacing } from '../../styles/jss/variables';
 
 const useStyles = makeStyles((theme: Theme) => ({
   buttonPrimary: {
     '&.MuiButtonBase-root': {
-      color: '#fff',
-      backgroundColor: '#2196f3',
+      color: colors.primary.white,
+      backgroundColor: colors.backgroundColor.primary,
       '&:hover': {
-        backgroundColor: '#1976d2',
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
+        backgroundColor: colors.bghovercolor.primary,
       },
-      '&:active': {
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
-      },
+      '&:active': {},
       '&:disabled': {
-        color: 'rgba(0, 0, 0, 0.26)',
+        color: colors.disabled.color,
         boxShadow: 'none',
-        backgroundColor: 'rgba(0, 0, 0, 0.12)',
+        backgroundColor: colors.disabled.backgroundcolor,
+        pointerEvents: 'none',
       },
     },
   },
   buttonSecondaryDark: {
     '&.MuiButtonBase-root': {
-      color: '#fff',
-      backgroundColor: '#f50057',
+      color: colors.backgroundColor.primary,
+      backgroundColor: colors.primary.white,
+      border: `1px solid ${colors.backgroundColor.primary}`,
       '&:hover': {
-        backgroundColor: '#c51162',
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
+        backgroundColor: colors.bghovercolor.secondary,
       },
-      '&:active': {
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
-      },
+      '&:active': {},
       '&:disabled': {
-        color: 'rgba(0, 0, 0, 0.26)',
+        color: colors.disabled.color,
         boxShadow: 'none',
-        backgroundColor: 'rgba(0, 0, 0, 0.12)',
+        backgroundColor: colors.disabled.backgroundcolor,
+        pointerEvents: 'none',
       },
     },
   },
@@ -46,7 +43,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       '&:hover': {
         // color:  undefined,
         // backgroundColor: colors.primary.gold1,
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
       },
       '&:focus': {
         // color:  undefined,
@@ -146,7 +142,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       '&:hover': {
         color: undefined,
         // backgroundColor: colors.primary.gold1,
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.32)',
       },
       '&:focus': {
         // color:  undefined,

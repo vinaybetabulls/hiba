@@ -35,3 +35,35 @@ export const fontWeights = {
   medium: 500,
   bold: 700,
 };
+
+export const colors = {
+  backgroundColor: {
+    primary: '#18a405',
+  },
+  primary: {
+    white: '#ffffff',
+    black: '#001e00',
+  },
+  bghovercolor: {
+    primary: '#3c8224',
+    secondary: '#f2f7f2',
+  },
+  color: {
+    primary: '#fff',
+    secondary: '#18a405',
+    error: '',
+  },
+  disabled: {
+    backgroundcolor: '#d5e0d5',
+    color: '#9aaa97',
+  },
+  gray: {
+    gray1: '#5e6d55',
+    gray2: '#9aaa97',
+    gray3: '#beccbe',
+    gray4: '#d5e0d5',
+    gray5: '#e4ebe4',
+    gray6: '#f2f7f2',
+    gray7: '#f7faf7',
+  },
+};

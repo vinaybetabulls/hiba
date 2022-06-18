@@ -4,13 +4,25 @@ import React from 'react';
 import Button from '../../ui-components/Button/Button';
 import useStyles from './Insitituions.styles';
 
+import InstitutionForm from '../../ui-components/Institutions/Institutions';
+import { InstitutionValues } from '../../common/props';
+
 const Institutions = () => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const handleSaveInstitute = async (values: InstitutionValues) => {
+    // setOpen(false);
+    console.log({ values });
+  };
   return (
     <>
       <Box className={classes.header}>
         <Typography variant="h5">Institutions</Typography>
-        <Button variant="secondary" title="Create Instituion" />
+        <Button
+          variant="secondary"
+          title="Create Instituion"
+          onClick={() => setOpen(true)}
+        />
       </Box>
       <Typography paragraph>
         Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
@@ -26,6 +38,12 @@ const Institutions = () => {
         maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
         aliquam ultrices sagittis orci a.
       </Typography>
+
+      <InstitutionForm
+        open={open}
+        setOpen={setOpen}
+        handleSaveInstitute={handleSaveInstitute}
+      />
     </>
   );
 };
