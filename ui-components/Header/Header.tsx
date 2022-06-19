@@ -24,13 +24,13 @@ const Header = (props: Props) => {
     <AppBar position="static" className={classes.header}>
       <Toolbar>
         <img src={logo.url} alt="logo" />
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant="h3" className={classes.title}>
           {title}
         </Typography>
         <div className={classes.links}>
           <Link url="/about" label="About" variant="primary" />
           <Link url="/articles" label="Articles" variant="primary" />
-          <Link url="/login" label="Login" variant="primary" />
+          <Link label="Logout" variant="primary" url="/" />
         </div>
       </Toolbar>
     </AppBar>

@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { spacing, colors } from '../../styles/jss/variables';
 const drawerWidth = 240;
-
 const useStyles = makeStyles(theme => ({
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: spacing.small,
   },
   title: {
     flexGrow: 1,
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
       flexShrink: 0,
     },
     '& .MuiDrawer-paper': {
-      top: theme.spacing(8),
+      top: '65px',
     },
   },
   appBar: {
@@ -34,23 +34,23 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: spacing.medium,
   },
   list: { padding: '0 !important' },
   sidenavLinks: {
     '& .MuiListItemIcon-root': {
-      marginRight: '16px',
+      marginRight: spacing.small,
       minWidth: 0,
     },
     '&:hover': {
-      backgroundColor: '#e0f3ff !important',
+      backgroundColor: `${colors.bghovercolor.secondary} !important`,
       '& a, & .MuiListItemIcon-root': {
-        color: '#008be9',
+        color: colors.color.secondary,
       },
     },
     '& a': {
       textDecoration: 'none',
-      color: '#343a40',
+      color: colors.primary.black,
       display: 'flex',
       lineHeight: '2.4rem',
       height: '2.4rem',
@@ -62,6 +62,11 @@ const useStyles = makeStyles(theme => ({
       margin: '0.1rem 0',
     },
   },
+  activeItem: {
+    backgroundColor: `${colors.bghovercolor.secondary} !important`,
+    '& a, & .MuiListItemIcon-root': {
+      color: colors.color.secondary,
+    },
+  },
 }));
-
 export default useStyles;

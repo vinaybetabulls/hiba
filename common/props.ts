@@ -64,6 +64,7 @@ export type InstitutionValues = {
   zipcode: string;
   landmark: string;
   yearOfEstablishment: string;
-  natureOfInstitution: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
+  // natureOfInstitution: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
+  natureOfInstitution: string;
   comments: string;
 };

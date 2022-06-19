@@ -1,8 +1,7 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
 import '../public/css/fonts.css';
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
-import theme from '../styles/theme/theme';
+import ThemeWrapper from '../ui-components/ThemeWrapper/ThemeWrapper';
 
 function App({ Component, pageProps }: AppProps) {
   /*
@@ -18,10 +17,9 @@ function App({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ThemeWrapper>
       <Component {...pageProps} />
-    </ThemeProvider>
+    </ThemeWrapper>
   );
 }
 

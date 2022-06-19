@@ -3,25 +3,33 @@ import useStyles from './MainContent.styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
 import Link from '../Link/Link';
 import { sideNavLinks } from '../../common/data';
-import { SiteContext } from '../../utils/SiteContext';
 import { getBodyComponent } from '../../utils/getComponents';
+import clsx from 'clsx';
+import { useRouter } from 'next/router';
+
 export type Props = {
   componentName: string;
 };
 const MainContent = ({ componentName }: Props) => {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // const { bodyComponent } = useContext(SiteContext);
+  const router = useRouter();
   const [bodyComponent, setBodyComponent] = useState(componentName);
+
   const drawer = (
     <List className={classes.list}>
       {sideNavLinks.map((item, index) => (
-        <ListItem key={index} className={classes.sidenavLinks}>
+        <ListItem
+          key={index}
+          className={clsx(
+            classes.sidenavLinks,
+            router.asPath?.toLowerCase() === item.url.toLowerCase()
+              ? classes.activeItem
+              : '',
+          )}
+        >
           <Link
             url={item.url}
             label={item.label}

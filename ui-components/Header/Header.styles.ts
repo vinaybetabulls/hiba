@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { spacing } from '../../styles/jss/variable';
-
+import { colors, spacing } from '../../styles/jss/variables';
 const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
@@ -9,6 +8,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   header: {
+    color: colors.color.secondary,
+    boxShadow: 'none',
+    borderBottom: `1px solid ${colors.grey.grey3}`,
+    backgroundColor: '#fff',
     '& .MuiToolbar-root': {
       '& img': {
         height: '40px',
@@ -19,13 +22,15 @@ const useStyles = makeStyles(theme => ({
   },
   links: {
     '& a': {
-      color: '#fff',
+      color: colors.primary.black,
       textDecoration: 'none',
+      '&:hover': {
+        color: colors.color.secondary,
+      },
       '&:not(:last-child)': {
         marginRight: spacing.small,
       },
     },
   },
 }));
-
 export default useStyles;

@@ -9,7 +9,7 @@ export type Props = {
 const Page = ({ componentName }: Props) => {
   return (
     <>
-      <Header logo={logo} title="Hiba" />
+      {componentName !== 'Login' && <Header logo={logo} title="Hiba" />}
       <MainContent componentName={componentName} />
     </>
   );

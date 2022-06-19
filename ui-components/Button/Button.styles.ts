@@ -1,5 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { colors, spacing } from '../../styles/jss/variable';
+import { colors, spacing } from '../../styles/jss/variables';
 // import { colors, spacing } from '../../styles/jss/variables';
 
 const useStyles = makeStyles((theme: Theme) => ({

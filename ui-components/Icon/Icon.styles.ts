@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { spacing } from '../../styles/jss/variable';
+import { spacing } from '../../styles/jss/variables';
 
 const useStyles = makeStyles(() => ({
   iconContainer: {

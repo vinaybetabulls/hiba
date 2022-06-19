@@ -40,3 +40,8 @@ export type ArticleValues = {
   description: string;
   // images: string[];
 };
+
+export type LoginValues = {
+  name: string;
+  password: string;
+};

@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 // import { SiteTheme } from '../../styles/jss/theme';
-import { colors, spacing } from '../../styles/jss/variable';
+import { colors, spacing } from '../../styles/jss/variables';
 const useStyles = makeStyles(theme => ({
   modal: {
     // padding: theme.spacing(3),

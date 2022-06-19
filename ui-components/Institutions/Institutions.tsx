@@ -30,7 +30,6 @@ export const validationSchema = Yup.object().shape({
     .trim()
     .min(1, errorMessages(1).minChars)
     .max(40, errorMessages(40).maxChars)
-    .required('Please enter description')
     .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
   city: Yup.string()
     .trim()
@@ -62,12 +61,9 @@ export const validationSchema = Yup.object().shape({
     .max(40, errorMessages(40).maxChars)
     .required('Please enter description')
     .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  natureOfInstitution: Yup.string()
-    .trim()
-    .min(1, errorMessages(1).minChars)
-    .max(40, errorMessages(40).maxChars)
-    .required('Please enter description')
-    .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+  natureOfInstitution: Yup.string().required(
+    'Please enter nature of institution',
+  ),
   comments: Yup.string()
     .trim()
     .min(1, errorMessages(1).minChars)
@@ -93,7 +89,8 @@ type Props = {
   state?: string;
   zipcode?: string;
   yearOfEstablishment?: string;
-  natureOfInstitution?: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
+  natureOfInstitution?: string;
+  // natureOfInstitution?: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
   comments?: string;
   landmark?: string;
   handleSaveInstitute: HandleSubmit<InstitutionValues>;

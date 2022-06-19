@@ -1,5 +1,5 @@
 import { StyleRules } from '@material-ui/core';
-import { colors, spacing } from './variable';
+import { colors, spacing } from './variables';
 import { Theme } from '@material-ui/core/styles/createTheme';
 export const inputStyles = (theme: Theme): StyleRules => ({
   textFieldWrapper: {

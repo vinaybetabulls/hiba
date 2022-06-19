@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { fontSizes, spacing } from '../../styles/jss/variable';
+import { fontSizes, spacing } from '../../styles/jss/variables';
 
 const useStyles = makeStyles(theme => ({
   fullWidth: {

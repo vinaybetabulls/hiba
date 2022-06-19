@@ -6,6 +6,9 @@ const components = {
   Institutions: dynamic(() => import('../components/Institutions'), {
     ssr: false,
   }),
+  Login: dynamic(() => import('../components/Login'), {
+    ssr: false,
+  }),
 };
 
 export function getDynamicComponent(c: keyof typeof components) {
@@ -19,18 +22,6 @@ export function getDynamicComponent(c: keyof typeof components) {
 export function getBodyComponent(component: any) {
   const DynamicComponent = getDynamicComponent(component);
   if (DynamicComponent) {
-    return (
-      <DynamicComponent
-        title={''}
-        description={''}
-        image={{
-          url: '',
-          altText: '',
-        }}
-        onSubmit={function (): void {
-          throw new Error('Function not implemented.');
-        }}
-      />
-    );
+    return <DynamicComponent />;
   }
 }
