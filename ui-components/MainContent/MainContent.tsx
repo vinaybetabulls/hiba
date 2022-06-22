@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import useStyles from './MainContent.styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';

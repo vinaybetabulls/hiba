@@ -3,7 +3,6 @@ import React from 'react';
 import { Box } from '@material-ui/core';
 import useStyles from './Articles.styles';
 import Button from '../../ui-components/Button/Button';
-import Modal from '../../ui-components/Modal/Modal';
 import ArticlesForm from '../../ui-components/Articles/Articles';
 import { ArticleValues } from '../../utils/common';
 

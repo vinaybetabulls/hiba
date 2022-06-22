@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Page from '../components/Page/Page';
-import MainContent from '../ui-components/MainContent/MainContent';
-import { SiteContext } from '../utils/SiteContext';
+// import withAuth from '../utils/withAuth';
 
 const Articles = () => {
   return <Page componentName="Articles" />;

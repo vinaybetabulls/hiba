@@ -13,7 +13,7 @@ import useStyles from '../Articles/Articles.styles';
 import Button from '../Button/Button';
 
 export const validationSchema = Yup.object().shape({
-  name: Yup.string()
+  username: Yup.string()
     .trim()
     .min(1, errorMessages(1).minChars)
     .max(50, errorMessages(50).maxChars)
@@ -33,7 +33,7 @@ type Props = {
 
 const LoginForm = ({ handleSubmit }: Props) => {
   const initialValues = {
-    name: '',
+    username: '',
     password: '',
   };
 
@@ -52,7 +52,7 @@ const LoginForm = ({ handleSubmit }: Props) => {
           <Form>
             <div className={classes.container}>
               <TextField
-                name="name"
+                name="username"
                 label="Name"
                 placeholder="Enter name"
                 hideRequiredOptional
@@ -68,6 +68,7 @@ const LoginForm = ({ handleSubmit }: Props) => {
                 fullWidth
                 hideRequiredOptional
                 required
+                type="password"
               />
             </div>
             <div className={classes.dialogActions}>

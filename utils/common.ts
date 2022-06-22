@@ -42,6 +42,6 @@ export type ArticleValues = {
 };
 
 export type LoginValues = {
-  name: string;
+  username: string;
   password: string;
 };
