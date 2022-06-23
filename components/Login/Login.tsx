@@ -7,23 +7,14 @@ import { LoginValues } from '../../utils/common';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import { login } from '../../services';
 
 const Login = () => {
   const classes = useStyles();
   const router = useRouter();
   const handleSubmit = async (values: LoginValues) => {
-    console.log({ values });
-    // router.push('/articles');
-    const hostURL =
-      typeof window === 'undefined'
-        ? process.env.NEXT_HOST_URL
-        : process.env.NEXT_HOST_URL;
-    console.log({ hostURL });
     try {
-      const response = await axios.post(`http://103.180.121.228/login`, {
-        data: values,
-      });
+      const response = await login(values);
       if (response.data.jwt) {
         localStorage.setItem('accessToken', response.data.jwt);
         router.push('/articles');

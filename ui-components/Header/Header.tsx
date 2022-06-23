@@ -24,7 +24,7 @@ const Header = (props: Props) => {
   return (
     <AppBar position="static" className={classes.header}>
       <Toolbar>
-        <Image src={logo.url} alt="logo" />
+        <img src={logo.url} alt="logo" />
         <Typography variant="h3" className={classes.title}>
           {title}
         </Typography>

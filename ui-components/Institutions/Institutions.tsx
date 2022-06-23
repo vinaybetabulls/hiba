@@ -11,65 +11,86 @@ import {
 import useStyles from './Institutions.styles';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
-import { InstitutionValues } from '../../common/props';
+import { Address, InstitutionValues } from '../../common/props';
 
 export const validationSchema = Yup.object().shape({
   name: Yup.string()
     .trim()
     .min(1, errorMessages(1).minChars)
     .max(50, errorMessages(50).maxChars)
-    .required('Please enter title')
+    .required('Please enter name')
     .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  addressline1: Yup.string()
+  url: Yup.string()
     .trim()
     .min(1, errorMessages(1).minChars)
-    .max(40, errorMessages(40).maxChars)
+    .max(50, errorMessages(50).maxChars)
+    .required('Please enter URL'),
+  description: Yup.string()
+    .trim()
+    .min(1, errorMessages(1).minChars)
+    .max(50, errorMessages(50).maxChars)
     .required('Please enter description')
     .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  addressline2: Yup.string()
-    .trim()
-    .min(1, errorMessages(1).minChars)
-    .max(40, errorMessages(40).maxChars)
-    .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  city: Yup.string()
-    .trim()
-    .min(1, errorMessages(1).minChars)
-    .max(40, errorMessages(40).maxChars)
-    .required('Please enter description')
-    .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  state: Yup.string()
-    .trim()
-    .min(1, errorMessages(1).minChars)
-    .max(40, errorMessages(40).maxChars)
-    .required('Please enter description')
-    .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  zipcode: Yup.string()
-    .trim()
-    .min(1, errorMessages(1).minChars)
-    .max(40, errorMessages(40).maxChars)
-    .required('Please enter description')
-    .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  landmark: Yup.string()
-    .trim()
-    .min(1, errorMessages(1).minChars)
-    .max(40, errorMessages(40).maxChars)
-    .required('Please enter description')
-    .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+  address: Yup.object().shape({
+    addressline1: Yup.string()
+      .trim()
+      .min(1, errorMessages(1).minChars)
+      .max(40, errorMessages(40).maxChars)
+      .required('Please enter addressline1')
+      .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+    addressline2: Yup.string()
+      .trim()
+      .min(1, errorMessages(1).minChars)
+      .max(40, errorMessages(40).maxChars)
+      .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+    city: Yup.string()
+      .trim()
+      .min(1, errorMessages(1).minChars)
+      .max(40, errorMessages(40).maxChars)
+      .required('Please enter city')
+      .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+    mandal: Yup.string()
+      .trim()
+      .min(1, errorMessages(1).minChars)
+      .max(40, errorMessages(40).maxChars)
+      .required('Please enter mandal')
+      .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+    district: Yup.string()
+      .trim()
+      .min(1, errorMessages(1).minChars)
+      .max(40, errorMessages(40).maxChars)
+      .required('Please enter district')
+      .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+    state: Yup.string()
+      .trim()
+      .min(1, errorMessages(1).minChars)
+      .max(40, errorMessages(40).maxChars)
+      .required('Please enter state')
+      .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+    postalcode: Yup.string()
+      .trim()
+      .min(1, errorMessages(1).minChars)
+      .max(40, errorMessages(40).maxChars)
+      .required('Please enter pincode')
+      .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+    landmark: Yup.string()
+      .trim()
+      .min(1, errorMessages(1).minChars)
+      .max(40, errorMessages(40).maxChars)
+      .required('Please enter landmark')
+      .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+  }),
   yearOfEstablishment: Yup.string()
     .trim()
     .min(1, errorMessages(1).minChars)
     .max(40, errorMessages(40).maxChars)
-    .required('Please enter description')
+    .required('Please enter yearOfEstablishment')
     .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  natureOfInstitution: Yup.string().required(
-    'Please enter nature of institution',
-  ),
-  comments: Yup.string()
+  natureOfInstitution: Yup.string()
     .trim()
     .min(1, errorMessages(1).minChars)
     .max(40, errorMessages(40).maxChars)
-    .required('Please enter description')
-    .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
+    .required('Please enter nature of institution'),
   // images: Yup.mixed()
   //   .test(
   //     'fileSize',
@@ -83,16 +104,12 @@ export const validationSchema = Yup.object().shape({
 
 type Props = {
   name?: string;
-  addressline1?: string;
-  addressline2?: string;
-  city?: string;
-  state?: string;
-  zipcode?: string;
+  url?: string;
+  description?: string;
+  address?: Address;
   yearOfEstablishment?: string;
   natureOfInstitution?: string;
   // natureOfInstitution?: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
-  comments?: string;
-  landmark?: string;
   handleSaveInstitute: HandleSubmit<InstitutionValues>;
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -100,30 +117,31 @@ type Props = {
 
 const InstitutionsForm = ({
   name = '',
-  addressline1 = '',
-  addressline2 = '',
-  city = '',
-  state = '',
-  zipcode = '',
+  description = '',
+  url = '',
+  address = {
+    addressline1: '',
+    addressline2: '',
+    city: '',
+    mandal: '',
+    district: '',
+    state: '',
+    postalcode: '',
+    landmark: '',
+  },
   yearOfEstablishment = '',
-  natureOfInstitution = 'UNDER_CONSTRUCTION',
-  comments = '',
+  natureOfInstitution = '',
   handleSaveInstitute,
-  landmark = '',
   open,
   setOpen,
 }: Props) => {
   const initialValues = {
     name,
-    addressline1,
-    addressline2,
-    city,
-    state,
-    zipcode,
+    description,
+    url,
+    address,
     yearOfEstablishment,
     natureOfInstitution,
-    comments,
-    landmark,
   };
 
   const formikConfig = {
@@ -157,10 +175,30 @@ const InstitutionsForm = ({
                 required
               />
             </div>
+            <div className={classes.container}>
+              <TextField
+                name="description"
+                label="Description"
+                placeholder="Enter description"
+                fullWidth
+                required
+                rows={4}
+                multiline
+              />
+            </div>
+            <div className={classes.container}>
+              <TextField
+                name="url"
+                label="URL"
+                placeholder="Enter url"
+                fullWidth
+                required
+              />
+            </div>
             <div className={classes.addressContainer}>
               <div className={classes.container}>
                 <TextField
-                  name="addressline1"
+                  name="address.addressline1"
                   label="Addressline1"
                   placeholder="Enter addressline1"
                   fullWidth
@@ -169,7 +207,7 @@ const InstitutionsForm = ({
               </div>
               <div className={classes.container}>
                 <TextField
-                  name="addressline2"
+                  name="address.addressline2"
                   label="Addressline2"
                   placeholder="Enter addressline2"
                   fullWidth
@@ -177,7 +215,7 @@ const InstitutionsForm = ({
               </div>
               <div className={classes.container}>
                 <TextField
-                  name="city"
+                  name="address.city"
                   label="City"
                   placeholder="Enter City"
                   fullWidth
@@ -186,7 +224,25 @@ const InstitutionsForm = ({
               </div>
               <div className={classes.container}>
                 <TextField
-                  name="state"
+                  name="address.mandal"
+                  label="Mandal"
+                  placeholder="Enter Mandal"
+                  fullWidth
+                  required
+                />
+              </div>
+              <div className={classes.container}>
+                <TextField
+                  name="address.district"
+                  label="District"
+                  placeholder="Enter District"
+                  fullWidth
+                  required
+                />
+              </div>
+              <div className={classes.container}>
+                <TextField
+                  name="address.state"
                   label="State"
                   placeholder="Enter state"
                   fullWidth
@@ -195,7 +251,7 @@ const InstitutionsForm = ({
               </div>
               <div className={classes.container}>
                 <TextField
-                  name="landmark"
+                  name="address.landmark"
                   label="Landmark"
                   placeholder="Enter landmark"
                   fullWidth
@@ -204,9 +260,9 @@ const InstitutionsForm = ({
               </div>
               <div className={classes.container}>
                 <TextField
-                  name="zipcode"
-                  label="Zipcode"
-                  placeholder="Enter zipcode"
+                  name="address.postalcode"
+                  label="Postalcode"
+                  placeholder="Postal code"
                   fullWidth
                   required
                 />
@@ -227,16 +283,6 @@ const InstitutionsForm = ({
                   placeholder="Enter year of establishment"
                   fullWidth
                   required
-                />
-              </div>
-              <div className={classes.container}>
-                <TextField
-                  name="comments"
-                  label="Comments"
-                  placeholder="Enter comments"
-                  fullWidth
-                  multiline
-                  rows={4}
                 />
               </div>
             </div>

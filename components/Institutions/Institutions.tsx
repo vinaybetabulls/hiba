@@ -6,13 +6,18 @@ import useStyles from './Insitituions.styles';
 
 import InstitutionForm from '../../ui-components/Institutions/Institutions';
 import { InstitutionValues } from '../../common/props';
+import { saveInstitutions } from '../../services';
 
 const Institutions = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleSaveInstitute = async (values: InstitutionValues) => {
-    // setOpen(false);
-    console.log({ values });
+    try {
+      const response = await saveInstitutions(values);
+      console.log({ response });
+    } catch (error) {
+      console.log({ error });
+    }
   };
   return (
     <>

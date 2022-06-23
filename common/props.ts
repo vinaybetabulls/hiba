@@ -55,16 +55,23 @@ export type SideNavLinks = {
   label: string;
 };
 
-export type InstitutionValues = {
-  name: string;
+export type Address = {
   addressline1: string;
   addressline2?: string;
   city: string;
+  mandal: string;
+  district: string;
   state: string;
-  zipcode: string;
+  postalcode: string;
   landmark: string;
+};
+
+export type InstitutionValues = {
+  name: string;
+  url: string;
+  description: string;
+  address: Address;
   yearOfEstablishment: string;
   // natureOfInstitution: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
   natureOfInstitution: string;
-  comments: string;
 };
