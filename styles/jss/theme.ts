@@ -133,7 +133,7 @@ const overrides = (theme: {}): Overrides => ({
     input: {
       padding: '0',
       '&::placeholder': {
-        color: colors.grey.grey6,
+        // color: colors.grey.grey3,
         opacity: 1,
       },
     },

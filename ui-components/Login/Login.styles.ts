@@ -21,6 +21,14 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '35%',
     margin: '100px auto',
   },
+  container: {
+    marginBottom: theme.spacing(2),
+  },
+  dialogActions: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
 }));
 
 export default useStyles;

@@ -3,7 +3,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import useStyles from './Header.styles';
-import Button from '../Button/Button';
 import Link from '../Link/Link';
 import Image from 'next/image';
 
@@ -24,7 +23,7 @@ const Header = (props: Props) => {
   return (
     <AppBar position="static" className={classes.header}>
       <Toolbar>
-        <img src={logo.url} alt="logo" />
+        <Image src={logo.url} alt="logo" height={50} width={50} />
         <Typography variant="h3" className={classes.title}>
           {title}
         </Typography>
