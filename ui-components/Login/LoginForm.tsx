@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
-
+import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '../TextField/TextField';
+import IconButton from '@material-ui/core/IconButton';
 import {
   errorMessages,
   HandleSubmit,
@@ -11,6 +12,7 @@ import {
 } from '../../utils/common';
 import useStyles from './Login.styles';
 import Button from '../Button/Button';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 export const validationSchema = Yup.object().shape({
   username: Yup.string()
@@ -42,6 +44,8 @@ const LoginForm = ({ handleSubmit }: Props) => {
   };
 
   const classes = useStyles();
+
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <Formik {...formikConfig}>
       {({ isSubmitting }) => (
@@ -65,7 +69,20 @@ const LoginForm = ({ handleSubmit }: Props) => {
                 fullWidth
                 hideRequiredOptional
                 required
-                type="password"
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setShowPassword(!showPassword)}
+                      onMouseDown={(
+                        event: React.MouseEvent<HTMLButtonElement>,
+                      ) => event.preventDefault()}
+                    >
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
               />
             </div>
             <div className={classes.dialogActions}>

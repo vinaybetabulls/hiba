@@ -50,3 +50,17 @@ export const saveInstitutions = async (
     );
   }
 };
+
+export const getInstitutions = async (): Promise<any> => {
+  try {
+    return await axios.post(
+      `${hostURL}/admin/getInstituteForDataTable?page=1&pageSize=5&sort=name:desc&sort=description:asc`,
+      {},
+      getHeaders(),
+    );
+  } catch (error) {
+    throw new Error(
+      'There was a problem in fetching the institutions. Please try again.',
+    );
+  }
+};
