@@ -4,7 +4,6 @@ import { Form, Formik } from 'formik';
 
 import TextField from '../TextField/TextField';
 import {
-  ArticleValues,
   errorMessages,
   HandleSubmit,
   inputValidationRegex,
@@ -12,6 +11,8 @@ import {
 import useStyles from './Articles.styles';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
+import { ArticleValues } from '../../common/props';
+import UploadImages from '../UploadImages/UploadImages';
 
 const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 
@@ -22,7 +23,7 @@ export const validationSchema = Yup.object().shape({
     .max(50, errorMessages(50).maxChars)
     .required('Please enter title')
     .matches(inputValidationRegex, errorMessages().unsupportedCharacters),
-  description: Yup.string()
+  body: Yup.string()
     .trim()
     .min(1, errorMessages(1).minChars)
     .max(40, errorMessages(40).maxChars)
@@ -55,25 +56,41 @@ export const validationSchema = Yup.object().shape({
 
 type Props = {
   title?: string;
-  description?: string;
+  body?: string;
   images?: string[];
   handleSaveArticles: HandleSubmit<ArticleValues>;
   open: boolean;
   setOpen: (open: boolean) => void;
+  uploadImages: (file: any) => Promise<any>;
 };
 
 const ArticlesForm = ({
   title = '',
-  description = '',
-  // images = [],
+  body = '',
+  images = [],
   handleSaveArticles,
   open,
   setOpen,
+  uploadImages,
 }: Props) => {
   const initialValues = {
     title,
-    description,
+    body,
     // images,
+  };
+
+  const uploadPicture = async (e: any) => {
+    const productData = new FormData();
+    [...e.target.files].forEach(image => {
+      productData.append('files', image);
+    });
+    console.log(productData);
+    try {
+      const response = await uploadImages(productData);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const formikConfig = {
@@ -111,7 +128,7 @@ const ArticlesForm = ({
                 </div>
                 <div className={classes.container}>
                   <TextField
-                    name="description"
+                    name="body"
                     label="Description"
                     placeholder="Enter description"
                     fullWidth
@@ -120,6 +137,7 @@ const ArticlesForm = ({
                     rows={4}
                   />
                 </div>
+                <UploadImages images={images} uploadingImages={uploadImages} />
                 {/* <div className={classes.container}>
               <label className={classes.label}>Upload</label>
               <div className={classes.imgContainer}>

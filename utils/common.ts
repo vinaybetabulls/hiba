@@ -35,12 +35,6 @@ export type HandleSubmit<Values> = (
   formikHelpers?: FormikHelpers<Values>,
 ) => Promise<any>;
 
-export type ArticleValues = {
-  title: string;
-  description: string;
-  // images: string[];
-};
-
 export type LoginValues = {
   username: string;
   password: string;

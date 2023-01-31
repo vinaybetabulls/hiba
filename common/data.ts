@@ -16,4 +16,27 @@ export const sideNavLinks: SideNavLinks[] = [
     label: 'Institutions',
     icon: 'business_outlined_icon',
   },
+  {
+    url: '/users',
+    label: 'Users',
+    icon: 'people',
+  },
 ];
+
+export const instituteInitialValues = {
+  name: '',
+  description: '',
+  url: '',
+  address: {
+    addressline1: '',
+    addressline2: '',
+    city: '',
+    mandal: '',
+    district: '',
+    state: '',
+    postalcode: '',
+    landmark: '',
+  },
+  yearOfEstablishment: '',
+  natureOfInstitution: '',
+};

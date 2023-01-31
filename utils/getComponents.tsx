@@ -9,6 +9,7 @@ const components = {
   Login: dynamic(() => import('../components/Login'), {
     ssr: false,
   }),
+  Users: dynamic(() => import('../components/Users'), { ssr: false }),
 };
 
 export function getDynamicComponent(c: keyof typeof components) {

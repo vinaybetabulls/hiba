@@ -15,5 +15,5 @@ const Index = (props: any) => {
 export default Index;
 
 export const getStaticProps = () => {
-  return { title: 'Login | Hiba', noIndex: true };
+  return { title: 'Hiba-Admin | Login', noIndex: true };
 };

@@ -75,3 +75,8 @@ export type InstitutionValues = {
   // natureOfInstitution: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
   natureOfInstitution: string;
 };
+
+export type ArticleValues = {
+  title: string;
+  body: string;
+};

@@ -102,13 +102,16 @@ export const validationSchema = Yup.object().shape({
   //   ),
 });
 
-type Props = {
+export type InstituteProps = {
   name?: string;
   url?: string;
   description?: string;
   address?: Address;
   yearOfEstablishment?: string;
   natureOfInstitution?: string;
+};
+
+export type Props = InstituteProps & {
   // natureOfInstitution?: 'UNDER_CONSTRUCTION' | 'RENOVATE' | 'DAMAGED';
   handleSaveInstitute: HandleSubmit<InstitutionValues>;
   open: boolean;
@@ -143,11 +146,12 @@ const InstitutionsForm = ({
     yearOfEstablishment,
     natureOfInstitution,
   };
-
+  console.log({ initialValues });
   const formikConfig = {
     initialValues,
     validationSchema,
     onSubmit: handleSaveInstitute,
+    enableReinitialize: true,
   };
 
   const classes = useStyles();
