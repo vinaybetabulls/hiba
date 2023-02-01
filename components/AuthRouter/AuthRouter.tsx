@@ -27,8 +27,7 @@ function authRoute(Component: any) {
           }
         }
       };
-      // checkToken();
-      setAuthenticated(true);
+      checkToken();
     }, [router]);
 
     if (authenticated) {
